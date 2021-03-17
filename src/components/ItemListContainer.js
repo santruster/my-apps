@@ -1,9 +1,12 @@
-function ItemListContainer() {
-    return (
-      <div className="ItemListContainer">
-        <p>Texto de prueba</p>
-      </div>
-    );
-  }
+import ItemList from "./ItemList";
+
+const ItemListContainer = (props) => (
   
-  export default ItemListContainer;
+    <div className="ItemListContainer">
+      <h1>Container</h1>
+      <ItemList items={props.items}/>
+    </div>
+  
+);
+
+export default ItemListContainer;

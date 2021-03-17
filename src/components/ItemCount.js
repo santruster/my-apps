@@ -1,6 +1,6 @@
 import { useState } from 'react';
 const ItemCount = ({stock, initial, onAdd})=> {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('1')
     return (
       <div >
           <form class="form-group">
