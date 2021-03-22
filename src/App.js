@@ -4,6 +4,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemCount from "./components/ItemCount";
 import { useEffect, useState } from "react";
 
+
 function App() {
   const [stockActual, setStock] = useState(5);
   const restarStock = (e, nuevoStock) => {
@@ -16,8 +17,8 @@ function App() {
     new Promise((accepted, rejected) => {
       setTimeout(() => {
         accepted([
-          { name: "objeto1", description: "descriction1" },
-          { name: "objeto2", description: "descriction2" }
+          { id:'0', name: "objeto1"},
+          { id:'1', name: "objeto2"}
         ]);
       }, 2000);
     }).then((result) => setItems(result));
@@ -27,6 +28,7 @@ function App() {
       <NavBar />
       <ItemCount stock={stockActual} initial={1} onAdd={restarStock} />
       <ItemListContainer items={items} />
+      
     </div>
   );
 }
