@@ -2,7 +2,7 @@ import { Basket } from 'react-bootstrap-icons';
 function CartWidget() {
     return (
       <div className="CartWidget">
-       <Basket />
+       <Basket size={30}/>
       </div>
     );
   }

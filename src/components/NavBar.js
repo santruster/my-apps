@@ -1,12 +1,19 @@
-import CartWidget from "./CartWidget";
 
-function NavBar() {
+import CartWidget from "./CartWidget";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import ItemDetailContainer from "./ItemDetailContainer";
+
+function NavBar(props) {
   return (
+    <Router>
     <div className="NavBar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <li class="nav-item">
-          <CartWidget />
-        </li>
+        
         <button
           class="navbar-toggler"
           type="button"
@@ -20,9 +27,9 @@ function NavBar() {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Home <span class="sr-only">(current)</span>
+            <li class="nav-item ">
+              <a class="nav-link">
+              <Link to="/">Home</Link>
               </a>
             </li>
             <li class="nav-item">
@@ -36,9 +43,17 @@ function NavBar() {
               </a>
             </li>
           </ul>
+          
         </div>
+        <div class="float-right">
+          <CartWidget />
+          </div>
       </nav>
+      <Route exact path="/">
+            <ItemDetailContainer items={props.items}/>
+          </Route>
     </div>
+    </Router>
   );
 }
 

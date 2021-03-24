@@ -1,9 +1,20 @@
-const ItemDetail = (props) => (
-  <>
+import ItemCount from "./ItemCount";
+import {useState } from "react";
+const ItemDetail = (props) => {
+  const [stockActual, setStock] = useState(5);
+  const restarStock = (e, nuevoStock) => {
+    e.preventDefault();
+    if (stockActual - nuevoStock >= 0)
+      setStock((stockActual) => stockActual - nuevoStock);
+  };
+  return(
+    <>
     <p>{props.itemDetail.description}</p>
     <p>${props.itemDetail.price}</p>
-    <img src={props.itemDetail.image} />
-  </>
-)
+    <img src={props.itemDetail.image} class="col-lg-11  align-items-stretch"/>
+    <ItemCount stock={stockActual} initial={1} onAdd={restarStock} />
+    </>
+  );
+}
 
 export default ItemDetail;
