@@ -6,7 +6,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import ItemDetailContainer from "./ItemDetailContainer";
+
+import ItemListContainer from "./ItemListContainer";
+import ItemList from "./ItemList";
 
 function NavBar(props) {
   return (
@@ -34,12 +36,12 @@ function NavBar(props) {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Features
+                <Link to="/category/1">Category 1</Link>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Pricing
+              <Link to="/category/2">Category 2</Link>
               </a>
             </li>
           </ul>
@@ -49,9 +51,14 @@ function NavBar(props) {
           <CartWidget />
           </div>
       </nav>
+      <Switch>
       <Route exact path="/">
-            <ItemDetailContainer items={props.items}/>
-          </Route>
+            <ItemListContainer items={props.items}></ItemListContainer>
+      </Route>
+      <Route path="/category/:id">
+            <ItemList items={props.items}></ItemList>
+      </Route>
+      </Switch>
     </div>
     </Router>
   );
