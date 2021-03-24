@@ -12,18 +12,16 @@ function App() {
     new Promise((accepted, rejected) => {
       setTimeout(() => {
         accepted([
-          { id:'0', name: "objeto1"},
-          { id:'1', name: "objeto2"}
+          { id:'0', name: "objeto1", category:'1'},
+          { id:'1', name: "objeto2",category:'2'}
         ]);
       }, 2000);
     }).then((result) => setItems(result));
   });
   return (
     <div className="App">
-      <NavBar items={items}/>
-     
-      <ItemListContainer items={items} />
-      
+      <NavBar items={items}/>   
+            
     </div>
   );
 }
