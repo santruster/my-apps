@@ -1,13 +1,18 @@
 import ItemCount from "./ItemCount";
 import { useState } from "react";
 import { NavLink, Route, Router } from "react-router-dom";
+import cartContext from '../contexts/cartContext';
 import Cart from "./Cart";
 const ItemDetail = (props) => {
+  const context=useContext(cartContext)
   const [stockActual, setStock] = useState(5);
   const restarStock = (e, nuevoStock) => {
     e.preventDefault();
-    if (stockActual - nuevoStock >= 0)
+    if (stockActual - nuevoStock >= 0){
       setStock((stockActual) => stockActual - nuevoStock);
+      context.addItem(props.id,nuevoStock)
+    }  
+
   };
   return (
     <>

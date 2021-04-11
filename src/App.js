@@ -1,8 +1,9 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
+
 
 import { useEffect, useState } from "react";
+import cartContext from "./contexts/cartContext";
 
 
 function App() {
@@ -20,8 +21,10 @@ function App() {
   });
   return (
     <div className="App">
-      <NavBar items={items}/>   
-            
+       <cartContext.Provider>
+      <NavBar items={items}/>
+      </cartContext.Provider>   
+       
     </div>
   );
 }
